@@ -108,10 +108,10 @@
 					]
 				},
 				{
-					"name": "bulkUpdate",
-					"pattern": "bulkUpdate",
+					"name": "approverScreen",
+					"pattern": "approverScreen",
 					"target": [
-						"bulkUpdate"
+						"approverScreen"
 					]
 				},
 				{
@@ -136,9 +136,9 @@
 					"routerClass": "sap.m.routing.Router",
 					"controlId": "mainContents"
 				},
-				"bulkUpdate": {
+				"approverScreen": {
 					"viewType": "XML",
-					"viewName": "bulkUpdate",
+					"viewName": "approverScreen",
 					"routerClass": "sap.m.routing.Router",
 					"controlId": "mainContents"
 				},

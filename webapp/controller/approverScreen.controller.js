@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (Controller) {
 	"use strict";
 
-	return Controller.extend("JabilPoc.Jabil_Poc.controller.bulkUpdate", {
+	return Controller.extend("JabilPoc.Jabil_Poc.controller.approverScreen", {
 
 		onInit: function () {
 			var that = this;

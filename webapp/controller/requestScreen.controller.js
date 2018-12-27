@@ -73,6 +73,7 @@ sap.ui.define([
 			});
 
 			this.oDataModel = this.getOwnerComponent().getModel("oMatTableDataModel");
+			this.oMatTableDataModel= this.oDataModel;
 
 			var elemVisibilityModel = this.getOwnerComponent().getModel("elemVisibilityModel");
 			this.elemVisibilityModel = elemVisibilityModel;
@@ -94,14 +95,14 @@ sap.ui.define([
 			var that = this;
 			this.busy.open();
 			var oMatTableDataModel = this.oMatTableDataModel;
-			var sUrl = "/jabilPriceUpdate/POC_JABIL/price_maintenance.xsjs";
+			var sUrl = "/jabilPriceUpdate/POC_JABIL/service.xsjs/priceMaintenance";
 			var oModel = new sap.ui.model.json.JSONModel();
 			oModel.loadData(sUrl, "", true, "GET", false, false, this.oHeader);
 			oModel.attachRequestCompleted(function (oEvent) {
 				if (oEvent.getParameter("success")) {
 					var resultData = oModel.getData();
 					if (resultData) {
-						oMatTableDataModel.getData().listRequestDto = resultData;
+						that.oMatTableDataModel.getData().listRequestDto = resultData;
 						//	oComboLapiDataModel.setData(resultData);
 						that.busy.close();
 						oMatTableDataModel.refresh();

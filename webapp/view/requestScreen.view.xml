@@ -37,7 +37,7 @@
 							<Text text=""/>
 							<HBox>
 								<Button class="sapUiSizeCompact btn1Class" width="6rem" text="Search" press="onSearch"/>
-								<Button class="sapUiSizeCompact btn2Class" width="6rem"  text="Clear"/>
+								<Button class="sapUiSizeCompact btn2Class" width="6rem" text="Clear"/>
 							</HBox>
 						</VBox>
 					</l:Grid>
@@ -45,7 +45,7 @@
 				<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding sapUiSizeCompact iconTabBarClass">
 					<items>
 						<IconTabFilter text="Price Management" class="sapUiSizeCompact iconTabBarFilterClass">
-							<ui:Table id="table1" class="materialTableClass sapUiSizeCompact" rows="{oDataModel>/listRequestDto}" selectionMode="None"
+							<ui:Table id="table1" class="materialTableClass sapUiSizeCompact" rows="{oMatTableDataModel>/listRequestDto}" selectionMode="None"
 								fixedColumnCount="3" visibleRowCount="20" ariaLabelledBy="title">
 								<ui:toolbar>
 									<Toolbar>
@@ -53,7 +53,6 @@
 											<SearchField placeholder="Search" search="filterGlobally" width="16rem"/>
 											<!--<Title id="title" text="Search Results"/>-->
 											<ToolbarSpacer/>
-											
 											<Button icon="sap-icon://download" text="Export" class="sapUiSizeCompact " press="onExportToCSV"/>
 											<Button icon="sap-icon://upload" class="sapUiSizeCompact " press="onBulkUpdatePress" text="Upload"/>
 											<Button icon="sap-icon://sys-next-page" text="Download template" class="sapUiSizeCompact " press="onExportToTemplte"/>
@@ -61,64 +60,64 @@
 									</Toolbar>
 								</ui:toolbar>
 								<ui:columns>
-									<ui:Column width="10rem">
+									<ui:Column width="10%">
 										<Label text="Commodity"/>
 										<ui:template>
-											<Text text="{oDataModel>commodity}" wrapping="false"/>
+											<Text text="{oMatTableDataModel>commodity}" wrapping="false"/>
 										</ui:template>
 									</ui:Column>
-									<ui:Column width="8rem" hAlign="End">
+									<ui:Column width="10%" hAlign="End">
 										<Label text="Sub Commodity"/>
 										<ui:template>
-											<Text text="{oDataModel>subCommodity}" wrapping="false"/>
+											<Text text="{oMatTableDataModel>subCommodity}" wrapping="false"/>
 										</ui:template>
 									</ui:Column>
-									<ui:Column width="6rem">
+									<ui:Column width="10%">
 										<Label text="Sap Materail No"/>
 										<ui:template>
-											<Text text="{oDataModel>sapMaterial}" wrapping="false"/>
+											<Text text="{oMatTableDataModel>sapMaterial}" wrapping="false"/>
 										</ui:template>
 									</ui:Column>
-									<ui:Column width="9rem">
+									<ui:Column width="10%">
 										<Label text="Margin%"/>
 										<ui:template>
-											<Input value="{oDataModel>margin}"/>
+											<Input value="{oMatTableDataModel>currentMargin}"/>
 										</ui:template>
 									</ui:Column>
 									<ui:Column width="9rem">
 										<Label text="Base Price"/>
 										<ui:template>
-											<Text text="{oDataModel>basePrice}"/>
+											<Text text="{oMatTableDataModel>basePrice}"/>
 										</ui:template>
 									</ui:Column>
 									<ui:Column width="9rem">
 										<Label text="New Proposed Price"/>
 										<ui:template>
-											<Input value=""/>
+											<Text text="{oMatTableDataModel>proposedPrice}"/>
 										</ui:template>
 									</ui:Column>
 									<ui:Column width="9rem">
 										<Label text="validity Start"/>
 										<ui:template>
-											<Input value="{oDataModel>validityStart}"/>
+											<DatePicker value="{oMatTableDataModel>createdAt}" valueFormat="yyyy-MM-dd" displayFormat="long" change="handleChange" class="sapUiSmallMarginBottom"/>
 										</ui:template>
 									</ui:Column>
 									<ui:Column width="9rem">
 										<Label text="Validity End"/>
 										<ui:template>
-											<Input value="{oDataModel>validityEnd}"/>
+											<DatePicker value="{oMatTableDataModel>updatedAt}" valueFormat="yyyy-MM-dd" displayFormat="long" change="handleChange" class="sapUiSmallMarginBottom"/>
 										</ui:template>
 									</ui:Column>
 									<ui:Column width="9rem">
 										<Label text="Previous Quater Price"/>
 										<ui:template>
-											<Text text=""/>
+											<Text text="{oMatTableDataModel>prevQtrPrice}"/>
 										</ui:template>
 									</ui:Column>
 									<ui:Column width="9rem">
 										<Label text="Comments"/>
 										<ui:template>
-											<Input value=""/>
+											<Input value="{oMatTableDataModel>comment}"/>
 										</ui:template>
 									</ui:Column>
 								</ui:columns>
@@ -148,11 +147,12 @@
 						</IconTabFilter>
 					</items>
 				</IconTabBar>
-				<SegmentedButton id="pgnId" class="sapUiSmallMarginBottom sapUiSizeCompact pgnBtnGroupClass" selectionChange="onSelectionChange" selectedKey="competitor">
+				<SegmentedButton id="pgnId" class="sapUiSmallMarginBottom sapUiSizeCompact pgnBtnGroupClass" selectionChange="onSelectionChange"
+					selectedKey="competitor">
 					<items>
-						<SegmentedButtonItem icon="sap-icon://nav-back"  />
+						<SegmentedButtonItem icon="sap-icon://nav-back"/>
 						<SegmentedButtonItem text="1" enabled="false" key="competitor"/>
-						<SegmentedButtonItem icon="sap-icon://feeder-arrow"  />
+						<SegmentedButtonItem icon="sap-icon://feeder-arrow"/>
 					</items>
 				</SegmentedButton>
 			</VBox>

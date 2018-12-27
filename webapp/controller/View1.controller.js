@@ -21,11 +21,10 @@ sap.ui.define([
 			//	this._router.navTo("requestScreen"); 
 
 			var path = jQuery.sap.getModulePath("JabilPoc.Jabil_Poc");
-			var oDataModel = this.getOwnerComponent().getModel("oMatTableDataModel");
-			oDataModel.loadData(path + "/model/data.json", null, false);
-			this.oDataModel = oDataModel;
-			this.getView().setModel(oDataModel, "oDataModel");
-			oDataModel.refresh();
+			var oMatTableDataModel = this.getOwnerComponent().getModel("oMatTableDataModel");
+			this.oMatTableDataModel = oMatTableDataModel;
+			this.getView().setModel(oMatTableDataModel, "oMatTableDataModel");
+			oMatTableDataModel.refresh();
 			
 			var oMarginAllDataModel = this.getOwnerComponent().getModel("oMarginAllDataModel");
 			oMarginAllDataModel.getData().listRequestDto=[];
