@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core">
+	<Dialog title="Upload File">
+		<HBox class="uploadContainerClass sapUiSizeCompact">
+			<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+				uploadComplete="handleUploadComplete"/>
+		</HBox>
+	<!--	<buttons>-->
+			<beginButton>
+					<Button class="sapUiSizeCompact" text="Upload File" press="onUpload"/>
+			</beginButton>
+			<endButton>
+					<Button class="sapUiSizeCompact" text="Cancel" press="onCancel"/>
+			</endButton>
+	<!--	</buttons>-->
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,168 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="JabilPoc.Jabil_Poc.controller.inbox"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" class="sapuisizecompact" xmlns:ui="sap.ui.table">
+	<Page title="Inbox" showHeader="false">
+		<content>
+			<VBox visible="{elemVisibilityModel>/inboxVisible}">
+				<List binding="{/ProductCollection}"    itemPress="onItemSelect" >
+				<headerToolbar>
+					<Toolbar>
+						<content>
+							<Title text="Inbox(3)" level="H2"/>
+							<ToolbarSpacer/>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<StandardListItem title="RequestId : 1" description="Requested by: Jhon" type="Navigation"/>
+				<StandardListItem title="RequestId : 2" description="Requested by: Chris" type="Navigation"/>
+				<StandardListItem title="RequestId : 3" description="Requested by: Jhon" type="Navigation"/>
+			</List>
+			</VBox>
+			<VBox class="detailSectionClass" visible="{elemVisibilityModel>/requestDetailvisible}">
+				<Bar class="sapUiSizeCompact barClass">
+				<contentLeft>
+					<Button icon="sap-icon://nav-back" press="onBack" ></Button>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="Request ID-1"></Text>
+				</contentMiddle>
+				<contentRight>
+					<Button text="Save" class="primaryBtnClass "/>
+					<Button text="Accept" type="Accept" />
+					<Button text="Reject" type="Reject" />
+				</contentRight>
+			</Bar>
+				<VBox class="searchArea sapuisizecompact">
+					<l:Grid defaultSpan="XL3 L3 M6 S6">
+						<VBox>
+							<Text text="JPN"></Text>
+							<Text class="textClass sapUiSizeCompact" width="100%" text="11-2535-1"/>
+						</VBox>
+						<VBox>
+							<Text text="Mfg Site"></Text>
+							<Text class="textClass sapUiSizeCompact" width="100%" text="120389"/>
+						</VBox>
+						<VBox>
+							<Text text="Dist Channel"></Text>
+							<Text class="textClass sapUiSizeCompact" width="100%" text="Channel-123"/>
+						</VBox>
+						<VBox>
+							<Text text="Customer"></Text>
+							<Text class="textClass sapUiSizeCompact" width="100%" text="Incture Technologies"/>
+						</VBox>
+						<VBox>
+							<Text text="Sales Org"></Text>
+							<Text class="textClass sapUiSizeCompact" width="100%" text="org-1234"/>
+						</VBox>
+					</l:Grid>
+				</VBox>
+				<ui:Table id="table1" class="materialTableClass sapUiSizeCompact"
+					rows="{oDataModel>/listRequestDto}" selectionMode="None" fixedColumnCount="3" visibleRowCount="7" ariaLabelledBy="title">
+					<ui:columns>
+						<ui:Column width="6rem">
+							<Label text="Commodity"/>
+							<ui:template>
+								<Text text="{oDataModel>materialNumber}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="10rem">
+							<Label text="Sub Commodity"/>
+							<ui:template>
+								<Text text="{oDataModel>commodity}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="8rem" hAlign="End">
+							<Label text="SAP Material"/>
+							<ui:template>
+								<Text text="{oDataModel>sub-commodity}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="9rem">
+							<Label text="Margin %"/>
+							<ui:template>
+								<Text text="{oDataModel>attribute1}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="9rem">
+							<Label text="Previous Approved Price"/>
+							<ui:template>
+								<Text text="{oDataModel>attribute2}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="9rem">
+							<Label text="New Proposed Price"/>
+							<ui:template>
+								<Text text="{oDataModel>attribute3}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="9rem">
+							<Label text="Base Price"/>
+							<ui:template>
+								<Text text="{oDataModel>attribute4}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="9rem">
+							<Label text="Previous Quater Price"/>
+							<ui:template>
+								<Text text="{oDataModel>basePrice}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="7rem">
+							<Label text="Comments"/>
+							<ui:template>
+								<Text text="{oDataModel>historicalCost}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="7rem">
+							<Label text="Attribute 1"/>
+							<ui:template>
+								<Text text="{oDataModel>forecastCost}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="11rem">
+							<Label text="Attribute 2"/>
+							<ui:template>
+								<Text text="{oDataModel>approvedCMMprice}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="9rem">
+							<Label text="Attribute 3"/>
+							<ui:template>
+								<Text text="{oDataModel>CMMsuggestedMargin}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="9rem">
+							<Label text="Attribute 4"/>
+							<ui:template>
+								<Text text="{oDataModel>CMMsuggestedPrice}" wrapping="false"/>
+							</ui:template>
+						</ui:Column>
+						<!--<ui:Column width="9rem">-->
+						<!--	<Label text="CMM Proposed Margin"/>-->
+						<!--	<ui:template>-->
+						<!--		<Input value=""/>-->
+						<!--	</ui:template>-->
+						<!--</ui:Column>-->
+						<!--<ui:Column width="9rem">-->
+						<!--	<Label text="CMM Proposed Price"/>-->
+						<!--	<ui:template>-->
+						<!--		<Input value=""/>-->
+						<!--	</ui:template>-->
+						<!--</ui:Column>-->
+						<!--<ui:Column width="9rem">-->
+						<!--	<Label text="CMM comments"/>-->
+						<!--	<ui:template>-->
+						<!--		<ComboBox></ComboBox>-->
+						<!--	</ui:template>-->
+						<!--</ui:Column>-->
+						<!--<ui:Column width="9rem">-->
+						<!--	<Label text="Notes"/>-->
+						<!--	<ui:template>-->
+						<!--		<Input value="MMMMMM"/>-->
+						<!--	</ui:template>-->
+						<!--</ui:Column>-->
+					</ui:columns>
+				</ui:Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

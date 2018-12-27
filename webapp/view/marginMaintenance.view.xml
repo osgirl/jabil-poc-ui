@@ -1,0 +1,117 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:ui="sap.ui.table" xmlns:l="sap.ui.layout"
+	controllerName="JabilPoc.Jabil_Poc.controller.marginMaintenance" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" showHeader="flase">
+		<subHeader class="sapUiSizeCompact">
+			<Toolbar class="subHeaderClass">
+				<Title text="Margin Maintenance" level="H3"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<VBox class="detailSectionClass">
+				<Panel class="searchArea sapuisizecompact" expanded="true" expandable="true">
+					<headerToolbar>
+						<Toolbar >
+							<Text text="Search"></Text>
+							<ToolbarSpacer></ToolbarSpacer>
+						</Toolbar>
+					</headerToolbar>
+					<l:Grid class="searchGrid" defaultSpan="XL3 L3 M6 S6">
+						<VBox>
+							<Text text="Commodity"></Text>
+							<Input class="sapUiSizeCompact" width="100%" editable="true" enabled="true" value="{oPRModel>/REQID}"/>
+						</VBox>
+						<VBox>
+							<Text text="Sub-Commodity"></Text>
+							<Input class="sapUiSizeCompact" width="100%" editable="true" enabled="true" value="{oPRModel>/REQID}"/>
+						</VBox>
+						<VBox >
+							<Text text=""></Text>
+							<Text text=""></Text>
+						</VBox>
+						<VBox class="buttongroup">
+							<Text text=""></Text>
+							<HBox>
+								<Button class="sapUiSizeCompact btn1Class" width="6rem" text="Search" press="onSearch"></Button>
+								<Button class="sapUiSizeCompact btn2Class" width="6rem" text="Clear"></Button>
+							</HBox>
+						</VBox>
+					</l:Grid>
+				</Panel>
+				<ui:Table id="marginTableId"  class="materialTableClass sapUiSizeCompact"
+					rows="{oMarginDataModel>/listRequestDto}" rowSelectionChange="onRowSelect" showOverlay="false" editable="false" selectionMode="MultiToggle"
+					ariaLabelledBy="title" visibleRowCount="20">
+					<ui:toolbar>
+						<Toolbar>
+							<content>
+								<Title id="title" text="Margin Maintenance"/>
+							</content>
+							<ToolbarSpacer></ToolbarSpacer>
+							<SearchField id="filterId" placeholder="Search" search="filterGlobally" width="15rem"/>
+							<Button enabled="{elemVisibilityModel>/tableEditIcon}"  class="sapUiSizeCompact " icon="sap-icon://edit" text="Edit" press="onMarginEdit"></Button>
+							<Button enabled="{elemVisibilityModel>/tablDeleteIcon}" class="sapUiSizeCompact " icon="sap-icon://delete" text="Delete" press="onMarginDelete"></Button>
+							<Button enabled="{elemVisibilityModel>/tableAddIcon}" class="sapUiSizeCompact " icon="sap-icon://add" text="Add" press="onMarginAdd"></Button>
+						</Toolbar>
+					</ui:toolbar>
+					<ui:columns>
+						<ui:Column width="20%">
+							<Label text="Commodity"/>
+							<ui:template>
+								<Input editable="{oMarginDataModel>editable}" value="{oMarginDataModel>commodity}" change="onfieldValueChange"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="20%" hAlign="End">
+							<Label text="Sub Commodity"/>
+							<ui:template>
+								<Input editable="{oMarginDataModel>editable}" value="{oMarginDataModel>subCommodity}" change="onfieldValueChange"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="12%">
+							<Label text="Attribute 1"/>
+							<ui:template>
+								<Input editable="{oMarginDataModel>editable}" value="{oMarginDataModel>attribute1}" change="onfieldValueChange"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="12%">
+							<Label text="Attribute 2"/>
+							<ui:template>
+								<Input editable="{oMarginDataModel>editable}" value="{oMarginDataModel>attribute2}" change="onfieldValueChange"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="12%">
+							<Label text="Attribute 3"/>
+							<ui:template>
+								<Input editable="{oMarginDataModel>editable}" value="{oMarginDataModel>attribute3}" change="onfieldValueChange"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column width="12%">
+							<Label text="Attribute 4"/>
+							<ui:template>
+								<Input editable="{oMarginDataModel>editable}" value="{oMarginDataModel>attribute4}" change="onfieldValueChange"/>
+							</ui:template>
+						</ui:Column >
+						<ui:Column width="12%">
+							<Label text="Margin"/>
+							<ui:template>
+								<Input editable="{oMarginDataModel>editable}" value="{oMarginDataModel>margin}" change="onfieldValueChange"/>
+							</ui:template>
+						</ui:Column>
+						<!--<ui:Column width="2%">-->
+						<!--	<Label text=""/>-->
+						<!--	<ui:template>-->
+						<!--		<Button class="sapUiSizeCompact" type="Transparent" icon="sap-icon://delete" press="onMarginDelete"></Button>-->
+						<!--	</ui:template>-->
+						<!--</ui:Column>-->
+					</ui:columns>
+				</ui:Table>
+				<SegmentedButton id="pgnId" class="sapUiSmallMarginBottom sapUiSizeCompact pgnBtnGroupClass" selectionChange="onSelectionChange" selectedKey="competitor">
+					<items>
+						<SegmentedButtonItem icon="sap-icon://nav-back" key="back" />
+						<SegmentedButtonItem text="1" enabled="false" key="competitor"/>
+						<SegmentedButtonItem icon="sap-icon://feeder-arrow" key="front"/>
+					</items>
+				</SegmentedButton>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

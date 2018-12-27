@@ -1,0 +1,206 @@
+.sapMTBStandard{
+	border:none;
+}
+/*.sapMBar{*/
+/*	height: 2rem;*/
+/*}*/
+
+.sapMBtn{
+	height: 2rem;
+}
+.detailSectionClass .sapMITB .sapMITBScrollContainer{
+	margin: 0 1rem !important;
+}
+.detailSectionClass .sapMITBHead{
+	margin : 0 !important;
+}
+.detailSectionClass .sapMITBContent{
+	padding :0 !important;
+}
+.subHeaderClass.sapMTB{
+	height: 2.4rem !important;
+	background:#2d5d8b;
+    border: none;
+    padding-left: 1rem;
+}
+
+.detailSectionClass .sapMTB{
+	height: 2rem !important;
+}
+
+.detailSectionClass .sapMPanelWrappingDivTb,.detailSectionClass .sapMPanelWrappingDivTb{
+	border-bottom:0px;
+}
+.sapMPage>.sapMPageHeader + section, .sapMPage>.sapMPageSubHeader + section, .sapMPage>.sapMPageHeader + .sapUiHiddenPlaceholder + section {
+    top: 2.4rem;
+}
+.subHeaderClass .sapMTitle{
+	color: white;
+	text-shadow: none;
+}
+
+.dashBoardClass{
+	background-repeat: no-repeat;
+    background-size: cover;
+	background-image: url(../css/backGround.png);
+}
+
+.pageClass .sapContrast.sapTntSideNavigation{
+	background: #105D8B;
+    border: 1px solid #105D8B;
+}
+
+/*.pageClass .sapContrast.sapTntToolHeader.sapMTB,.headerClass.sapContrast.sapTntToolHeader.sapMTB{*/
+/*	background: #b82c2c !important;*/
+/*    border: 1px solid #b82c2c !important;*/
+/*}*/
+
+.pageClass .sapContrast.sapTntNavLIGroup {
+	border-bottom: 1px solid #105D8B !important;
+}
+.pageClass .sapContrast .sapTntNavLIItem,.pageClass .sapContrast .sapTntNavLIItemSelected .sapTntNavLIGroup {
+    background-color: #105D8B !important ;
+    border: 1px solid #105D8B !important;
+}
+
+.pageClass .sapContrast.sapTntNavLIItemSelected .sapTntNavLIItem:hover{
+	    background-color: #20709f !important;
+	     border: 1px solid #20709f  !important;
+} 
+
+.pageClass .sapContrast .sapTntNavLIItemSelected .sapTntNavLIGroup{
+	    background-color: #104767 !important;
+	     border: 1px solid #104767 !important;
+} 
+
+.pageContentClass{
+	height: 100%;
+}
+
+.searchArea{
+	    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.1);
+	margin:1rem;
+	background-color:#ffffff;
+    width: auto !important;
+	height: auto;
+	padding: 0;
+	font-size: medium;
+    border-radius: 4px;
+    padding-bottom: 0rem;
+}
+
+.searchGrid .sapUiRespGridSpanL3,.searchGrid .sapUiRespGridSpanM6,.searchGrid .sapUiRespGridSpanS6,.searchGrid .sapUiRespGridSpanXL3{
+	margin-bottom:0rem !important;
+}
+
+.buttongroup{
+	    line-height: 1.1rem;
+}
+
+.textClass{
+	font-weight: 700;
+}
+
+.searchArea .sapMInputBase{
+	width: 80% !important;
+}
+
+.searchArea .sapMPanelContent{
+	padding:0;
+	padding-top:0.5rem;
+	    margin-bottom: 1rem;
+    border-bottom: white;
+}
+
+.searchArea .sapMBar{
+	background-color: #e5e5e500;
+	box-shadow: none;
+}
+
+.materialTableClass{
+	margin: 1rem;
+	margin-top: 0rem;
+}
+
+.logoClass{
+	background-repeat: no-repeat;
+    background-size: contain;
+    width: 5rem;
+    height: 0.8rem;
+	background-image: url(../css/jabilLogo3.png);
+}
+
+.sideNavClass{
+	height:100%
+}
+
+.detailSectionClass{
+	overflow: auto !important;
+	width: 100%;
+}
+.uploadContainerClass{
+	margin: 0.5rem;
+}
+
+
+.reportBarClass .barClass{
+	margin-top: 0.2rem;
+    height: 2.4rem;
+	color: white;
+	background-color: white;
+}
+
+.reportGridClass{
+	margin: 0.5rem;
+	background-color: white;
+	border: 2px solid #bfead1;
+	border-radius: 4px;
+	width : auto;
+}
+
+.btn1Class,.btn2Class{
+	margin: 0 0 0 0.5rem;
+}
+
+.btn1Class .sapMBtnInner{
+    border: none;
+    background: green;
+    color: white;
+}
+
+.btn2Class .sapMBtnInner{
+    border: none;
+    border: 1px solid #ec5151;
+    background: #ffffff;
+    color: #c34444;
+}
+
+.pgnBtnGroupClass{
+	left: 46%;
+    margin-bottom: 0rem !important;
+}
+.pgnBtnGroupClass .sapMSegBBtn.sapMSegBBtnDis{
+	opacity:1;
+}
+
+.iconTabBarClass .sapMITH{
+	    background: white;
+    height: 2rem;
+    box-shadow: none;
+}
+
+.iconTabBarClass .sapMITBText{
+	margin:0rem !important;
+	margin-top:0.2rem !important;
+}
+
+.popOverLabel {
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.popOverVboxClass {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    padding-right: 2rem;
+}

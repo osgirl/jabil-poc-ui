@@ -1,0 +1,75 @@
+{
+	"listRequestDto": [{
+		"sapMaterial": "11-0985-01",
+		"commodity": "CAPACITOR-CERAMIC",
+		"subCommodity": "RESISTOR",
+		"margin": "0.12",
+		"basePrice": "0.015158",
+		"newProposedPrice": "0.1%",
+		"previousQuaterPrice": "0.015590",
+		"comments":"0.15",
+		"validityStart": "0.0151630",
+		"validityEnd": "",
+		"editable": false
+	},{
+		"sapMaterial": "11-0985-01",
+		"commodity": "CAPACITOR-CERAMIC",
+		"subCommodity": "RESISTOR",
+		"margin": "0.12",
+		"basePrice": "0.015158",
+		"newProposedPrice": "0.1%",
+		"previousQuaterPrice": "0.015590",
+		"comments":"0.15",
+		"validityStart": "0.0151630",
+		"validityEnd": "",
+		"editable": false
+	},{
+		"sapMaterial": "11-0985-01",
+		"commodity": "CAPACITOR-CERAMIC",
+		"subCommodity": "RESISTOR",
+		"margin": "0.12",
+		"basePrice": "0.015158",
+		"newProposedPrice": "0.1%",
+		"previousQuaterPrice": "0.015590",
+		"comments":"0.15",
+		"validityStart": "0.0151630",
+		"validityEnd": "",
+		"editable": false
+	},{
+		"sapMaterial": "11-0985-01",
+		"commodity": "CAPACITOR-CERAMIC",
+		"subCommodity": "RESISTOR",
+		"margin": "0.12",
+		"basePrice": "0.015158",
+		"newProposedPrice": "0.1%",
+		"previousQuaterPrice": "0.015590",
+		"comments":"0.15",
+		"validityStart": "0.0151630",
+		"validityEnd": "",
+		"editable": false
+	},{
+		"sapMaterial": "11-0985-01",
+		"commodity": "CAPACITOR-CERAMIC",
+		"subCommodity": "RESISTOR",
+		"margin": "0.12",
+		"basePrice": "0.015158",
+		"newProposedPrice": "0.1%",
+		"previousQuaterPrice": "0.015590",
+		"comments":"0.15",
+		"validityStart": "0.0151630",
+		"validityEnd": "",
+		"editable": false
+	},{
+		"sapMaterial": "11-0985-01",
+		"commodity": "CAPACITOR-CERAMIC",
+		"subCommodity": "RESISTOR",
+		"margin": "0.12",
+		"basePrice": "0.015158",
+		"newProposedPrice": "0.1%",
+		"previousQuaterPrice": "0.015590",
+		"comments":"0.15",
+		"validityStart": "0.0151630",
+		"validityEnd": "",
+		"editable": false
+	}]
+}

@@ -1,0 +1,161 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt"
+	xmlns:ui="sap.ui.table" controllerName="JabilPoc.Jabil_Poc.controller.requestScreen" displayBlock="true" class="sapuisizecompact"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:core="sap.ui.core" xmlns:viz.data="sap.viz.ui5.data" height="100%"
+	xmlns:viz="sap.viz.ui5.controls">
+	<Page title="Title" showHeader="false">
+		<subHeader class="sapUiSizeCompact">
+			<Toolbar class="subHeaderClass">
+				<Title text="Price Management" level="H3"/>
+				<ToolbarSpacer/>
+				<Button class="sapUiSizeCompact btn1Class" text="Save as Draft"/>
+				<Button class="sapUiSizeCompact btn1Class" text="Submit" type="Accept"/>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<VBox class="detailSectionClass">
+				<Panel class="searchArea sapuisizecompact" expanded="true" expandable="true">
+					<headerToolbar>
+						<Toolbar>
+							<Text text="Search"/>
+							<ToolbarSpacer/>
+						</Toolbar>
+					</headerToolbar>
+					<l:Grid class="searchGrid" defaultSpan="XL3 L3 M6 S6">
+						<VBox class="sapUiSizeCompact ">
+							<Text text="Customer"/>
+							<Input class="sapUiSizeCompact" width="100%" editable="true" enabled="true" value="{oPRModel>/REQID}"/>
+						</VBox>
+						<VBox class="sapUiSizeCompact ">
+							<Text text="Sales Org"/>
+							<Input class="sapUiSizeCompact" width="100%" editable="true" enabled="true" value="{oPRModel>/REQID}"/>
+						</VBox>
+						<VBox class="sapUiSizeCompact ">
+							<Text text="Dist Channel"/>
+							<Input class="sapUiSizeCompact" width="100%" editable="true" enabled="true" value="{oPRModel>/REQID}"/>
+						</VBox>
+						<VBox class="buttongroup ">
+							<Text text=""/>
+							<HBox>
+								<Button class="sapUiSizeCompact btn1Class" width="6rem" text="Search" press="onSearch"/>
+								<Button class="sapUiSizeCompact btn2Class" width="6rem"  text="Clear"/>
+							</HBox>
+						</VBox>
+					</l:Grid>
+				</Panel>
+				<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding sapUiSizeCompact iconTabBarClass">
+					<items>
+						<IconTabFilter text="Price Management" class="sapUiSizeCompact iconTabBarFilterClass">
+							<ui:Table id="table1" class="materialTableClass sapUiSizeCompact" rows="{oDataModel>/listRequestDto}" selectionMode="None"
+								fixedColumnCount="3" visibleRowCount="20" ariaLabelledBy="title">
+								<ui:toolbar>
+									<Toolbar>
+										<content>
+											<SearchField placeholder="Search" search="filterGlobally" width="16rem"/>
+											<!--<Title id="title" text="Search Results"/>-->
+											<ToolbarSpacer/>
+											
+											<Button icon="sap-icon://download" text="Export" class="sapUiSizeCompact " press="onExportToCSV"/>
+											<Button icon="sap-icon://upload" class="sapUiSizeCompact " press="onBulkUpdatePress" text="Upload"/>
+											<Button icon="sap-icon://sys-next-page" text="Download template" class="sapUiSizeCompact " press="onExportToTemplte"/>
+										</content>
+									</Toolbar>
+								</ui:toolbar>
+								<ui:columns>
+									<ui:Column width="10rem">
+										<Label text="Commodity"/>
+										<ui:template>
+											<Text text="{oDataModel>commodity}" wrapping="false"/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="8rem" hAlign="End">
+										<Label text="Sub Commodity"/>
+										<ui:template>
+											<Text text="{oDataModel>subCommodity}" wrapping="false"/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="6rem">
+										<Label text="Sap Materail No"/>
+										<ui:template>
+											<Text text="{oDataModel>sapMaterial}" wrapping="false"/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="9rem">
+										<Label text="Margin%"/>
+										<ui:template>
+											<Input value="{oDataModel>margin}"/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="9rem">
+										<Label text="Base Price"/>
+										<ui:template>
+											<Text text="{oDataModel>basePrice}"/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="9rem">
+										<Label text="New Proposed Price"/>
+										<ui:template>
+											<Input value=""/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="9rem">
+										<Label text="validity Start"/>
+										<ui:template>
+											<Input value="{oDataModel>validityStart}"/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="9rem">
+										<Label text="Validity End"/>
+										<ui:template>
+											<Input value="{oDataModel>validityEnd}"/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="9rem">
+										<Label text="Previous Quater Price"/>
+										<ui:template>
+											<Text text=""/>
+										</ui:template>
+									</ui:Column>
+									<ui:Column width="9rem">
+										<Label text="Comments"/>
+										<ui:template>
+											<Input value=""/>
+										</ui:template>
+									</ui:Column>
+								</ui:columns>
+							</ui:Table>
+						</IconTabFilter>
+						<IconTabFilter text="Historical Trends" class="sapUiSizeCompact iconTabBarFilterClass">
+							<l:Grid defaultSpan="XL6 L6 M6 S6">
+								<VBox class="reportGridClass">
+									<Bar class="reportBarClass sapUiSizeCompact">
+										<contentLeft>
+											<Label text="Historical Price trend" class="barHeaderLblClass"></Label>
+										</contentLeft>
+									</Bar>
+									<viz:Popover id="idPopOver"></viz:Popover>
+									<viz:VizFrame id="idVizFrame" width="100%" height="30vw" vizType='timeseries_line' selectData="onSelectGraph1Point"></viz:VizFrame>
+								</VBox>
+								<VBox class="reportGridClass">
+									<Bar class="reportBarClass sapUiSizeCompact">
+										<contentLeft>
+											<Label text="Inventory level" class="barHeaderLblClass"></Label>
+										</contentLeft>
+									</Bar>
+									<viz:Popover id="idPopOver1"></viz:Popover>
+									<viz:VizFrame id="idVizFrame1" width="100%" height="30vw" vizType='column' selectData="onSelectGraph2Point"></viz:VizFrame>
+								</VBox>
+							</l:Grid>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+				<SegmentedButton id="pgnId" class="sapUiSmallMarginBottom sapUiSizeCompact pgnBtnGroupClass" selectionChange="onSelectionChange" selectedKey="competitor">
+					<items>
+						<SegmentedButtonItem icon="sap-icon://nav-back"  />
+						<SegmentedButtonItem text="1" enabled="false" key="competitor"/>
+						<SegmentedButtonItem icon="sap-icon://feeder-arrow"  />
+					</items>
+				</SegmentedButton>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>
