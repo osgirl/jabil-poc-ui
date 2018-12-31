@@ -1,3 +1,4 @@
+jQuery.sap.includeStyleSheet(sap.ui.resource("JabilPoc.Jabil_Poc", "css/style.css"));
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
@@ -21,7 +22,7 @@ sap.ui.define([
 			UIComponent.prototype.init.apply(this, arguments);
 
 			// enable routing
-			this.getRouter().initialize();
+			// this.getRouter().initialize();
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");

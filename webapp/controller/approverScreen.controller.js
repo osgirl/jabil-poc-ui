@@ -1,5 +1,3 @@
-jQuery.sap.require("JabilPoc.Jabil_Poc.util.xlsx");
-jQuery.sap.require("JabilPoc.Jabil_Poc.util.jszip");
 sap.ui.define([
 	"sap/ui/core/mvc/Controller"
 ], function (Controller) {
@@ -10,19 +8,49 @@ sap.ui.define([
 		onInit: function () {
 			var that = this;
 			var oComponent = this.getOwnerComponent();
-			this._router = oComponent.getRouter();
-			this._router.attachRoutePatternMatched(function(oEvent) {
-				var viewName = oEvent.getParameter("name");
-				//that.routePatternMatched(oEvent);
-			}); 
-			
-			
+			// this._router = oComponent.getRouter();
+			// this._router.attachRoutePatternMatched(function(oEvent) {
+			// 	var viewName = oEvent.getParameter("name");
+			// 	//that.routePatternMatched(oEvent);
+			// }); 
+
 			var oBulkUploadModel = this.getOwnerComponent().getModel("oBulkUploadModel");
 			this.getView().setModel(oBulkUploadModel, "oBulkUploadModel");
 			var oTblHdrDetailsModel = new sap.ui.model.json.JSONModel();
 			this.getView().setModel(oTblHdrDetailsModel, "oTblHdrDetailsModel");
 			this.oBulkUploadModel = oBulkUploadModel;
+
+			//this.getRecordsList();
 		},
+		
+		getAllRecords: function () {
+			var that = this;
+			this.busy.open();
+			var oApproverDataModel = this.oApproverDataModel;
+			var sUrl = "/jabilPriceUpdate/POC_JABIL/service.xsjs/getRequestById?requestId=JABILPU082372";
+			var oModel = new sap.ui.model.json.JSONModel();
+			oModel.loadData(sUrl, "", true, "GET", false, false, this.oHeader);
+			oModel.attachRequestCompleted(function (oEvent) {
+				if (oEvent.getParameter("success")) {
+					var resultData = oModel.getData();
+					if (resultData) {
+						
+						that.busy.close();
+						oApproverDataModel.refresh();
+					}
+				} else {
+					//			var errorText = that.oResourceModel.getText("INTERNAL_SERVER_ERROR");
+					//		formatter.toastMessage(errorText);
+					that.busy.close();
+				}
+			});
+			oModel.attachRequestFailed(function (oEvent) {
+				//	var errorText = that.oResourceModel.getText("INTERNAL_SERVER_ERROR");
+				//	formatter.toastMessage(errorText);
+				that.busy.close();
+			});
+		},
+		
 
 		//works only for csv files
 		onUpload: function (e) {
@@ -50,14 +78,14 @@ sap.ui.define([
 			var that = this;
 			reader.onload = function (e) {
 
-			 //var data = e.target.result;
-    //      var wb = XLSX.read(data, {type: 'binary'});
-    //      wb.SheetNames.forEach(function(sheetName) {
-    //       var roa = XLSX.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);
-    //       if(roa.length > 0){
-    //          result[sheetName] = roa;
-    //       }
-    //       });
+				//var data = e.target.result;
+				//      var wb = XLSX.read(data, {type: 'binary'});
+				//      wb.SheetNames.forEach(function(sheetName) {
+				//       var roa = XLSX.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);
+				//       if(roa.length > 0){
+				//          result[sheetName] = roa;
+				//       }
+				//       });
 				if (reader.result) reader.content = reader.result;
 				var base64Data = btoa(reader.content);
 				var bytes = new Uint8Array(reader.result);
@@ -98,9 +126,9 @@ sap.ui.define([
 			};
 			reader.readAsArrayBuffer(file);
 		},
-		
-		onBack: function(){
-			this._router.navTo("requestScreen"); 
+
+		onBack: function () {
+			this._router.navTo("requestScreen");
 		}
 
 		//works only for csv files

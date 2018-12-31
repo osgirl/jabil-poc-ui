@@ -1,7 +1,7 @@
 {
 	"_version": "1.7.0",
 	"sap.app": {
-		"id": "JabilPoc.Jabil_Poc",
+		"id": "jabilpocui",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -37,7 +37,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "JabilPoc.Jabil_Poc.view.View1",
+			"viewName": "JabilPoc.Jabil_Poc.view.approverScreen",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -65,7 +65,7 @@
 			"elemVisibilityModel": {
 				"type": "sap.ui.model.json.JSONModel"
 			},
-			"oBulkUploadModel": {
+			"oApproverDataModel": {
 				"type": "sap.ui.model.json.JSONModel"
 			},
 			"oMarginDataModel": {
@@ -84,83 +84,6 @@
 					"uri": "css/style.css"
 				}
 			]
-		},
-		"routing": {
-			"config": {
-				"routerClass": "sap.m.routing.Router",
-				"viewType": "XML",
-				"viewPath": "JabilPoc.Jabil_Poc.view",
-				"controlAggregation": "pages"
-			},
-			"routes": [
-				{
-					"name": "requestScreen",
-					"pattern": "",
-					"target": [
-						"requestScreen"
-					]
-				},
-				{
-					"name": "marginMaintenance",
-					"pattern": "marginMaintenance",
-					"target": [
-						"marginMaintenance"
-					]
-				},
-				{
-					"name": "approverScreen",
-					"pattern": "approverScreen",
-					"target": [
-						"approverScreen"
-					]
-				},
-				{
-					"name": "Reports",
-					"pattern": "Reports",
-					"target": [
-						"Reports"
-					]
-				},
-				{
-					"name": "inbox",
-					"pattern": "inbox",
-					"target": [
-						"inbox"
-					]
-				}
-			],
-			"targets": {
-				"requestScreen": {
-					"viewName": "requestScreen",
-					"controlAggregation": "pages",
-					"routerClass": "sap.m.routing.Router",
-					"controlId": "mainContents"
-				},
-				"approverScreen": {
-					"viewType": "XML",
-					"viewName": "approverScreen",
-					"routerClass": "sap.m.routing.Router",
-					"controlId": "mainContents"
-				},
-				"Reports": {
-					"viewType": "XML",
-					"viewName": "Reports",
-					"routerClass": "sap.m.routing.Router",
-					"controlId": "mainContents"
-				},
-				"inbox": {
-					"viewType": "XML",
-					"viewName": "inbox",
-					"routerClass": "sap.m.routing.Router",
-					"controlId": "mainContents"
-				},
-				"marginMaintenance": {
-					"viewType": "XML",
-					"viewName": "marginMaintenance",
-					"routerClass": "sap.m.routing.Router",
-					"controlId": "mainContents"
-				}
-			}
 		}
 	},
 	"sap.platform.hcp": {

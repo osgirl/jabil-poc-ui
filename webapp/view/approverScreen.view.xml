@@ -4,125 +4,9 @@
 	<App>
 		<pages>
 			<Page title="Title" showHeader="false">
-				<!--<HBox class="uploadContainerClass sapUiSizeCompact">-->
-				<!--	<Button icon="sap-icon://nav-back" press="onBack"></Button>-->
-				<!--	<u:FileUploader  name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"-->
-				<!--		uploadComplete="handleUploadComplete"/>-->
-				<!--	<Button text="Upload File" press="onUpload"/>-->
-				<!--</HBox>-->
-				<!--<ui:Table id="table1" class="materialTableClass sapUiSizeCompact"-->
-				<!--	rows="{oBulkUploadModel>/listRequestDto}" selectionMode="MultiToggle" fixedColumnCount="1" visibleRowCount="14" ariaLabelledBy="title">-->
-				<!--<ui:toolbar>-->
-				<!--	<Toolbar>-->
-				<!--		<content>-->
-				<!--			<Title id="title" text="Search Results"/>-->
-				<!--		</content>-->
-				<!--	</Toolbar>-->
-				<!--</ui:toolbar>-->
-				<!--	<ui:columns>-->
-				<!--		<ui:Column width="11rem">-->
-				<!--			<Label text="Material No"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>materialNumber}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="11rem">-->
-				<!--			<Label text="Commodity"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>commodity}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="6rem" hAlign="End">-->
-				<!--			<Label text="Sub Commodity"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>subcommodity}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="Attribute 1"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>attribute1}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="Attribute 2"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>attribute2}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="Attribute 3"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>attribute3}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="Attribute 4"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>attribute4}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="Base Price"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>basePrice}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="Historic Cost"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>historicalPrice}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="Forecast Cost"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>foreCastPrice}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="Appoved CMM Price"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>approvedCMMPrice}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="CMM Suggested Margin"/>-->
-				<!--			<ui:template>-->
-				<!--				<Text text="{oBulkUploadModel>CMMsuggestedMargin}" wrapping="false"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="CMM Proposed Margin"/>-->
-				<!--			<ui:template>-->
-				<!--				<Input value="{oBulkUploadModel>CMMproposedMargin}"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="CMM Proposed Price"/>-->
-				<!--			<ui:template>-->
-				<!--				<Input value="{oBulkUploadModel>CMMproposedPrice}"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="CMM Comments"/>-->
-				<!--			<ui:template>-->
-				<!--				<ComboBox></ComboBox>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--		<ui:Column width="9rem">-->
-				<!--			<Label text="CMM Notes"/>-->
-				<!--			<ui:template>-->
-				<!--				<Input value="{oBulkUploadModel>CMMnotes}"/>-->
-				<!--			</ui:template>-->
-				<!--		</ui:Column>-->
-				<!--	</ui:columns>-->
-				<!--</ui:Table> </Page>-->
+				
 				<VBox class="detailSectionClass" visible="{elemVisibilityModel>/requestDetailvisible}">
 					<Bar class="sapUiSizeCompact barClass">
-						<contentLeft>
-							<Button icon="sap-icon://nav-back" press="onBack"></Button>
-						</contentLeft>
 						<contentMiddle>
 							<Text text="Request ID-1"></Text>
 						</contentMiddle>
@@ -156,85 +40,85 @@
 							</VBox>
 						</l:Grid>
 					</VBox>
-					<ui:Table id="table1" class="materialTableClass sapUiSizeCompact" rows="{oDataModel>/listRequestDto}" selectionMode="None"
+					<ui:Table id="table1" class="materialTableClass sapUiSizeCompact" rows="{oApproverDataModel>/listRequestDto}" selectionMode="None"
 						fixedColumnCount="3" visibleRowCount="7" ariaLabelledBy="title">
 						<ui:columns>
 							<ui:Column width="6rem">
 								<Label text="Commodity"/>
 								<ui:template>
-									<Text text="{oDataModel>materialNumber}" wrapping="false"/>
+									<Text text="{oApproverDataModel>materialNumber}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="10rem">
 								<Label text="Sub Commodity"/>
 								<ui:template>
-									<Text text="{oDataModel>commodity}" wrapping="false"/>
+									<Text text="{oApproverDataModel>commodity}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="8rem" hAlign="End">
 								<Label text="SAP Material"/>
 								<ui:template>
-									<Text text="{oDataModel>sub-commodity}" wrapping="false"/>
+									<Text text="{oApproverDataModel>sub-commodity}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="9rem">
-								<Label text="Margin %"/>
+								<Label text="Margin"/>
 								<ui:template>
-									<Text text="{oDataModel>attribute1}" wrapping="false"/>
+									<Text text="{oApproverDataModel>attribute1}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="9rem">
 								<Label text="Previous Approved Price"/>
 								<ui:template>
-									<Text text="{oDataModel>attribute2}" wrapping="false"/>
+									<Text text="{oApproverDataModel>attribute2}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="9rem">
 								<Label text="New Proposed Price"/>
 								<ui:template>
-									<Text text="{oDataModel>attribute3}" wrapping="false"/>
+									<Text text="{oApproverDataModel>attribute3}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="9rem">
 								<Label text="Base Price"/>
 								<ui:template>
-									<Text text="{oDataModel>attribute4}" wrapping="false"/>
+									<Text text="{oApproverDataModel>attribute4}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="9rem">
 								<Label text="Previous Quater Price"/>
 								<ui:template>
-									<Text text="{oDataModel>basePrice}" wrapping="false"/>
+									<Text text="{oApproverDataModel>basePrice}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="7rem">
 								<Label text="Comments"/>
 								<ui:template>
-									<Text text="{oDataModel>historicalCost}" wrapping="false"/>
+									<Text text="{oApproverDataModel>historicalCost}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="7rem">
 								<Label text="Attribute 1"/>
 								<ui:template>
-									<Text text="{oDataModel>forecastCost}" wrapping="false"/>
+									<Text text="{oApproverDataModel>forecastCost}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="11rem">
 								<Label text="Attribute 2"/>
 								<ui:template>
-									<Text text="{oDataModel>approvedCMMprice}" wrapping="false"/>
+									<Text text="{oApproverDataModel>approvedCMMprice}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="9rem">
 								<Label text="Attribute 3"/>
 								<ui:template>
-									<Text text="{oDataModel>CMMsuggestedMargin}" wrapping="false"/>
+									<Text text="{oApproverDataModel>CMMsuggestedMargin}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="9rem">
 								<Label text="Attribute 4"/>
 								<ui:template>
-									<Text text="{oDataModel>CMMsuggestedPrice}" wrapping="false"/>
+									<Text text="{oApproverDataModel>CMMsuggestedPrice}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<!--<ui:Column width="9rem">-->
