@@ -76,6 +76,9 @@
 			},
 			"oMarginAllDataModel": {
 				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oTaskContextDataModel": {
+				"type": "sap.ui.model.json.JSONModel"
 			}
 		},
 		"resources": {

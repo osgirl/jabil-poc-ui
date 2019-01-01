@@ -4,7 +4,6 @@
 	<App>
 		<pages>
 			<Page title="Title" showHeader="false">
-				
 				<VBox class="detailSectionClass" visible="{elemVisibilityModel>/requestDetailvisible}">
 					<Bar class="sapUiSizeCompact barClass">
 						<contentMiddle>
@@ -12,8 +11,16 @@
 						</contentMiddle>
 						<contentRight>
 							<Button text="Save" class="primaryBtnClass "/>
-							<Button text="Accept" type="Accept"/>
-							<Button text="Reject" type="Reject"/>
+							<Button text="Accept" type="Accept" press="onAction">
+								<customData>
+									<core:CustomData key="accept" value="0"/>
+								</customData>
+							</Button>
+							<Button text="Reject" type="Reject"  press="onAction">
+								<customData>
+									<core:CustomData key="reject" value="0"/>
+								</customData>
+							</Button>
 						</contentRight>
 					</Bar>
 					<VBox class="searchArea sapuisizecompact">
@@ -43,112 +50,70 @@
 					<ui:Table id="table1" class="materialTableClass sapUiSizeCompact" rows="{oApproverDataModel>/listRequestDto}" selectionMode="None"
 						fixedColumnCount="3" visibleRowCount="7" ariaLabelledBy="title">
 						<ui:columns>
-							<ui:Column width="6rem">
-								<Label text="Commodity"/>
-								<ui:template>
-									<Text text="{oApproverDataModel>materialNumber}" wrapping="false"/>
-								</ui:template>
-							</ui:Column>
-							<ui:Column width="10rem">
-								<Label text="Sub Commodity"/>
+							<ui:Column width="7rem">
+								<Label text="Commodity" wrapping="true"/>
 								<ui:template>
 									<Text text="{oApproverDataModel>commodity}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
-							<ui:Column width="8rem" hAlign="End">
-								<Label text="SAP Material"/>
+							<ui:Column width="7rem">
+								<Label text="Sub Commodity" wrapping="true"/>
 								<ui:template>
-									<Text text="{oApproverDataModel>sub-commodity}" wrapping="false"/>
-								</ui:template>
-							</ui:Column>
-							<ui:Column width="9rem">
-								<Label text="Margin"/>
-								<ui:template>
-									<Text text="{oApproverDataModel>attribute1}" wrapping="false"/>
-								</ui:template>
-							</ui:Column>
-							<ui:Column width="9rem">
-								<Label text="Previous Approved Price"/>
-								<ui:template>
-									<Text text="{oApproverDataModel>attribute2}" wrapping="false"/>
-								</ui:template>
-							</ui:Column>
-							<ui:Column width="9rem">
-								<Label text="New Proposed Price"/>
-								<ui:template>
-									<Text text="{oApproverDataModel>attribute3}" wrapping="false"/>
-								</ui:template>
-							</ui:Column>
-							<ui:Column width="9rem">
-								<Label text="Base Price"/>
-								<ui:template>
-									<Text text="{oApproverDataModel>attribute4}" wrapping="false"/>
-								</ui:template>
-							</ui:Column>
-							<ui:Column width="9rem">
-								<Label text="Previous Quater Price"/>
-								<ui:template>
-									<Text text="{oApproverDataModel>basePrice}" wrapping="false"/>
+									<Text text="{oApproverDataModel>subCommodity}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
 							<ui:Column width="7rem">
-								<Label text="Comments"/>
+								<Label text="Sap Materail No" wrapping="true"/>
 								<ui:template>
-									<Text text="{oApproverDataModel>historicalCost}" wrapping="false"/>
+									<Text text="{oApproverDataModel>sapMaterial}" wrapping="false"/>
 								</ui:template>
 							</ui:Column>
-							<ui:Column width="7rem">
-								<Label text="Attribute 1"/>
+							<ui:Column width="6%">
+								<Label text="Margin" wrapping="true"/>
 								<ui:template>
-									<Text text="{oApproverDataModel>forecastCost}" wrapping="false"/>
+									<Input editable="false" value="{oApproverDataModel>currentMargin}" change="onfieldValueChange"/>
 								</ui:template>
 							</ui:Column>
-							<ui:Column width="11rem">
-								<Label text="Attribute 2"/>
+							<ui:Column width="8%">
+								<Label text="Base Price" wrapping="true"/>
 								<ui:template>
-									<Text text="{oApproverDataModel>approvedCMMprice}" wrapping="false"/>
+									<u:Currency value="{oApproverDataModel>basePrice}" currency="$"/>
 								</ui:template>
 							</ui:Column>
-							<ui:Column width="9rem">
-								<Label text="Attribute 3"/>
+							<ui:Column width="10%">
+								<Label text="New Proposed Price" wrapping="true"/>
 								<ui:template>
-									<Text text="{oApproverDataModel>CMMsuggestedMargin}" wrapping="false"/>
+									<u:Currency value="{oApproverDataModel>proposedPrice}" currency="$"/>
 								</ui:template>
 							</ui:Column>
-							<ui:Column width="9rem">
-								<Label text="Attribute 4"/>
+							<ui:Column width="10%">
+								<Label text="Validity Start" wrapping="true"/>
 								<ui:template>
-									<Text text="{oApproverDataModel>CMMsuggestedPrice}" wrapping="false"/>
+									<DatePicker editable="false" value="{oApproverDataModel>createdAt}" valueFormat="yyyy-MM-dd" displayFormat="long" change="handleChange"/>
 								</ui:template>
 							</ui:Column>
-							<!--<ui:Column width="9rem">-->
-							<!--	<Label text="CMM Proposed Margin"/>-->
-							<!--	<ui:template>-->
-							<!--		<Input value=""/>-->
-							<!--	</ui:template>-->
-							<!--</ui:Column>-->
-							<!--<ui:Column width="9rem">-->
-							<!--	<Label text="CMM Proposed Price"/>-->
-							<!--	<ui:template>-->
-							<!--		<Input value=""/>-->
-							<!--	</ui:template>-->
-							<!--</ui:Column>-->
-							<!--<ui:Column width="9rem">-->
-							<!--	<Label text="CMM comments"/>-->
-							<!--	<ui:template>-->
-							<!--		<ComboBox></ComboBox>-->
-							<!--	</ui:template>-->
-							<!--</ui:Column>-->
-							<!--<ui:Column width="9rem">-->
-							<!--	<Label text="Notes"/>-->
-							<!--	<ui:template>-->
-							<!--		<Input value="MMMMMM"/>-->
-							<!--	</ui:template>-->
-							<!--</ui:Column>-->
+							<ui:Column width="10%">
+								<Label text="Validity End" wrapping="true"/>
+								<ui:template>
+									<DatePicker editable="false" value="{oApproverDataModel>updatedAt}" valueFormat="yyyy-MM-dd" displayFormat="long" change="handleChange"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10%">
+								<Label text="Previous Quater Price" wrapping="true"/>
+								<ui:template>
+									<u:Currency value="{oApproverDataModel>prevQtrPrice}" currency="$"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10%">
+								<Label text="Comments" wrapping="true"/>
+								<ui:template>
+									<Input editable="false" value="{oMatTableDataModel>comment}" change="onfieldValueChange"/>
+								</ui:template>
+							</ui:Column>
 						</ui:columns>
 					</ui:Table>
 				</VBox>
-				</Page>
-			</pages>
-		</App>
-	</mvc:View>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -41,6 +41,14 @@
         "name": "jabilPriceUpdate"
       },
       "description": "jabilPriceUpdate"
+    },
+    {
+      "path": "/destination/bpmworkflowruntime",
+      "target": {
+        "type": "destination",
+        "name": "bpmworkflowruntime"
+      },
+      "description": "bpmworkflowruntime"
     }
   ],
   "sendWelcomeFileRedirect": true
